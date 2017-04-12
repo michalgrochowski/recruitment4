@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption&amp;subset=latin-ext" rel="stylesheet">  
+    <link rel="stylesheet" href="css/custom.css">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Michał Grochowski">
+</head>
+<body> 
+<main class="container">
+	<div class="loading--left"></div>
+	<div class="loading--right"></div>
+	<h2 class="loading__text--left">10</h2>
+	<h2 class="loading__text--right">12345</h2>
+	<h1 class="container__header">Your Account</h1>
+	<section class="container__box">
+		<div class="container__panel1">
+		</div>
+		<div class="container__panel2">
+			<h2 class="panel2__header">Take it all with you. Switch between devices, and pick up.</h2>
+			<form class="panel2__form">
+				<div class="form__box">
+					<label class="form__label" for="name">Your Name</label>
+					<input class="form__input--name" type="text" name="name" placeholder="Bill Eliot" required>
+				</div>
+				<div class="form__box">
+					<label class="form__label" for="phone">Mobile</label>
+					<div class="form__box--row">
+						<select class="form__select--phone" name="select">
+							<option value="value1" selected>+48 (PL)</option> 
+							<option value="value2" >+48 (PL)</option>
+							<option value="value3">+48 (PL)</option>
+						</select>
+						<input class="form__input--tel" type="text" placeholder="123 456 789" name="phone" required>
+					</div>
+				</div>
+				<div class="form__box">
+					<label class="form__label" for="gender">Gender</label>
+					<div class="form__box--genders">
+						<span class="form__female" id="female"></span>
+						<input class="form__radio" type="radio" name="gender" value="">
+						<label class="form__radio--squared1" id="femaleRadio" for="radio"></label>
+						<span class="form__male" id="male"></span>
+						<input class="form__radio" type="radio" name="gender" value="">
+						<label class="form__radio--squared2" id="maleRadio" for="radio"></label>
+					</div>
+				</div>
+				<div class="form__box">
+					<label class="form__label" for="date">Date of birth</label>
+					<div class="form__box--row">
+						<input class="form__input--day" type="text" placeholder="01" name="day" required>
+						<span class="break-line"></span>
+						<input class="form__input--month" type="text" placeholder="January" name="month" required>
+						<span class="break-line"></span>
+						<input class="form__input--year" type="text" placeholder="1990" name="year" required>
+					</div>
+				</div>
+				<input class="form__button" type="submit" value="COUNTINUE">
+			</form>
+		</div>
+		<span class="tab-line--first"><p class="tab-line__number">01</p></span>
+		<span class="tab-line--second"><p class="tab-line__number">02</p><p class="tab-line__text">Personal</p></span>
+		<span class="tab-line--third"><p class="tab-line__number">03</p></span>
+	</section>
+</main> 
+<script src="js/scripts.js"></script>
+</body>
+</html>

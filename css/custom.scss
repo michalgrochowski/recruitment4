@@ -1,0 +1,586 @@
+@mixin flex-center-row {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-pack: center;
+        -webkit-justify-content: center;
+            justify-content: center;
+    -ms-flex-align: center;
+        -webkit-align-items: center;
+            align-items: center;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+            flex-direction: row;
+}
+@mixin flex-center-column {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-pack: center;
+        -webkit-justify-content: center;
+            justify-content: center;
+    -ms-flex-align: center;
+        -webkit-align-items: center;
+            align-items: center;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+}
+@mixin top-buffer($buffer) {
+    margin-top: $buffer;
+}
+@mixin bottom-buffer($buffer) {
+    margin-bottom: $buffer;
+}
+@mixin left-buffer($buffer) {
+    margin-left: $buffer;
+}
+@mixin right-buffer($buffer) {
+    margin-right: $buffer;
+}
+@mixin bg-cover {
+    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+// Global
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 10px;
+}
+body {
+    overflow: hidden;
+}
+::-moz-placeholder {
+    opacity: 1;
+    color: rgb(223, 223, 223);
+}
+::-webkit-input-placeholder {
+    opacity: 1;
+    color: rgb(223, 223, 223);
+}
+:-ms-input-placeholder {
+    opacity: 1;
+    color: rgb(223, 223, 223);
+}
+// Main styles
+.container {
+    width: 100vw;
+    height: 100vh;
+    @include flex-center-column;
+    @include bg-cover;
+    background-image: url("../img/bg.png");
+}
+.container__header {
+    font-size: 4.8rem;
+    color: white;
+    margin-bottom: 7rem;
+    margin-left: 25rem;
+    letter-spacing: 0.4rem;
+}
+.container__box {
+    height: 550px;
+    width: 778px;
+    margin-bottom: 7rem;
+    @include flex-center-row;
+    position: relative;
+}
+.container__panel1, .container__panel2 {
+    height: 100%;
+}
+.container__panel1 {
+    width: 40%;
+    @include bg-cover;
+    background-image: url("../img/left.png");
+}
+.container__panel2 {
+    @include flex-center-column;
+    width: 60%;
+    background-color: white;
+}
+.panel2__header {
+    padding: 6rem;
+    font-size: 1.4rem;
+    margin-bottom: -2rem;
+    margin-top: -5rem;
+}
+input, select {
+    font-family: 'PT Sans Caption', sans-serif;
+    border: none;
+    border-bottom: 2px solid rgb(223, 223, 223);
+    transition: 0.3s all;
+}
+input:focus, select:focus {
+    border-bottom: 2px solid rgb(112, 58, 232);
+    transition: 0.3s all;
+}
+.panel2__form {
+    @include flex-center-column;
+    input, label {
+        display: block;
+    };
+}
+.form__box {
+    width: 80%;
+}
+.form__label {
+    color: rgb(223, 223, 223);
+    padding: 1rem;
+}
+.form__input {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.form__input--name {
+    @extend .form__input;
+    width: 97%;
+}
+.form__input--tel {
+    width: 65%;
+    @extend .form__input;
+    margin-left: 1.5rem;
+}
+.form__box--row {
+    @include flex-center-row;
+}
+.form__box--genders {
+    @include flex-center-row;
+    position: relative;
+}
+.form__select--phone {
+    margin-top: -0.7rem;
+    padding-bottom: 1rem;
+    margin-left: -1.5rem;
+    width: 28%;
+    background: url("../img/arrow.png") no-repeat right white;
+    appearance: none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    transition: 0.3s all;
+}
+.form__male {
+    cursor: pointer;
+    margin-right: 4rem;
+    width: 15%;
+    height: 55px;
+    display: block;
+    border: 2px solid rgb(223, 223, 223);
+    @include bg-cover;
+    background-size: 50%;
+    background-image: url("../img/male.png");
+}
+.form__female {
+    @extend .form__male;
+    background-size: 40%;
+    background-image: url("../img/female.png");
+}
+input[type=radio] {
+    display: none;
+}
+.form__radio {
+    margin-right: 2rem;
+}
+.form__radio--squared1 {
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgb(223, 223, 223);
+    left: 12.5%;
+    background-color: white;
+}
+.form__radio--squared2 {
+    @extend .form__radio--squared1;
+    left: 38.5%;
+}
+.radioActive {
+    border: 2px solid rgb(26, 242, 183);
+    transition: 0.5s all;
+}
+.radioActiveDot {
+    border: 2px solid rgb(26, 242, 183);
+    transition: 0.5s all;
+    @include bg-cover;
+    background-image: url("../img/dot.png");
+}
+.form__input--day {
+    padding: 1.5rem;
+    width: 15%;
+    height: 55px;
+    border: 2px solid rgb(223, 223, 223);
+    transition: 0.3s all;
+    margin-right: 1.5rem;
+}
+.form__input--month {
+    padding: 1.5rem;
+    padding-right: 3rem;
+    width: 32%;
+    height: 55px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    border: 2px solid rgb(223, 223, 223);
+    appearance: none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    transition: 0.3s all;
+}
+.form__input--year {
+    margin-left: 1.5rem;
+    padding: 1.5rem;
+    width: 32%;
+    height: 55px;
+    border: 2px solid rgb(223, 223, 223);
+    transition: 0.3s all;
+}
+.form__input--day:focus, .form__input--month:focus, .form__input--year:focus {
+    border: 2px solid rgb(112, 58, 232);
+    transition: 0.3s all;
+}
+.break-line {
+    display: block;
+    background-color: rgb(223, 223, 223);
+    height: 2px;
+    width: 3%;
+}
+.form__button {
+    cursor: pointer;
+    padding-right: 20px;
+    color: white;
+    position: absolute;
+    border: none;
+    width: 235px;
+    height: 50px;
+    top: 95.5%;
+    left: 590px;
+    background: url("../img/buttonarrow.png") no-repeat right 15px center rgb(112, 58, 232);
+    transition: 0.3s all;
+}
+// Elements
+.tab-line--first, .tab-line--second, .tab-line--third {
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 25px;
+    background-color: rgb(85, 85, 85);
+    left: 778px;
+}
+.tab-line--first {
+    color: rgb(85, 85, 85);
+    top: 122px;
+}
+.tab-line--second {
+    color: rgb(223, 223, 223);
+    top: 212px;
+    background-color: rgb(26, 242, 183);
+}
+.tab-line--third {
+    color: rgb(85, 85, 85);
+    top: 302px;
+}
+.tab-line__number {
+    font-size: 1.4rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.tab-line__text {
+    @extend .tab-line__number;
+    top: 30px;
+}
+
+// Animations
+@keyframes show-up {
+    0% {
+        margin-top: -2000px;
+        opacity: 0;
+        -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+                transform: scale(1);
+    }
+    70% {
+        margin-top: -2000px;
+        opacity: 0;
+        -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+                transform: scale(1);
+    }
+    80% {
+        opacity: 0.8;
+        margin-top: 0;
+        -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+                transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+                transform: scale(1);
+    }
+}
+@-webkit-keyframes slide-left {
+    0% {
+        margin-left: 0;
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        margin-left: 0;
+    }
+    90% {
+        margin-left: -2000px;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@keyframes slide-left {
+    0% {
+        margin-left: 0;
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        margin-left: 0;
+    }
+    90% {
+        margin-left: -2000px;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes slide-right {
+    0% {
+        margin-right: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+         margin-right: 0;
+    }
+    80% {
+        margin-right: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@keyframes slide-right {
+    0% {
+        margin-right: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+         margin-right: 0;
+    }
+    80% {
+        margin-right: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes box-slide-left {
+    0% {
+        margin-left: 0;
+    }
+    70% {
+        margin-left: 0;
+    }
+    80% {
+        margin-left: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@keyframes box-slide-left {
+    0% {
+        margin-left: 0;
+    }
+    70% {
+        margin-left: 0;
+    }
+    80% {
+        margin-left: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes box-slide-right {
+    0% {
+        margin-right: 0;
+    }
+    70% {
+        margin-right: 0;
+    }
+    80% {
+        margin-right: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+@keyframes box-slide-right {
+    0% {
+        margin-right: 0;
+    }
+    70% {
+        margin-right: 0;
+    }
+    80% {
+        margin-right: -2000px;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+// Media Queries
+@media screen and (min-width: 1300px) {
+    .loading--left, .loading--right {
+    background-color: rgb(223, 223, 223);
+    position: fixed;
+    height: 100vh;
+    width: 50vw;
+    z-index: 1;}
+    .loading--left {
+    top: 0;
+    left: 0;
+    -webkit-animation: box-slide-left 3.5s;
+            animation: box-slide-left 3.5s;
+    margin-left: -2000px;}
+    .loading--right {
+    top: 0;
+    right: 0;
+    -webkit-animation: box-slide-right 3.5s;
+            animation: box-slide-right 3.5s;
+    margin-right: -2000px;}
+    .loading__text--left, .loading__text--right {
+    position: fixed;
+    top: 45%;
+    z-index: 2;}
+    .loading__text--left {
+    left: 45vw;
+    font-size: 5.6rem;
+    color: rgb(112, 58, 232);
+    -webkit-animation: slide-left 3s;
+            animation: slide-left 3s;
+    margin-left: -2000px;}
+    .loading__text--right {
+    right: 40vw;
+    font-size: 5.6rem;
+    color: white;
+    -webkit-animation: slide-right 3s;
+            animation: slide-right 3s;
+    margin-right: -2000px;}
+    .container__box {
+    -webkit-animation: show-up 4s;
+            animation: show-up 4s;}
+}
+@media screen and (min-width: 930px) {
+    .form__button:hover {
+    margin-left: 20px;
+    transition: 0.3s all;}
+}
+@media screen and (max-width: 1300px) {
+    .loading--left, .loading--right, .loading__text--left, .loading__text--right {
+    display: none;}
+}
+@media screen and (max-width: 930px) {
+    .container__panel1 {
+    display: none;}
+    .form__button {
+    left: 430px;}
+    .container__header {
+    margin-left: 0;}
+    .tab-line--first, .tab-line--second, .tab-line--third {
+    left: 622px;}
+}
+@media screen and (max-width: 620px) {
+    .tab-line--first, .tab-line--second, .tab-line--third {
+    display: none;}
+}
+@media screen and (max-width: 576px) {
+    .form__button {
+    left: 35%;}
+}
+@media screen and (max-width: 500px) {
+    .container__panel2 {
+    width: 90vw;
+    height: 80vh;}
+    .container__header {
+    font-size: 3.2rem;
+    color: white;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.4rem;}
+    .panel2__header {
+    padding: 2.5rem;
+    margin-top: -3rem;}
+    .panel2__form {
+    max-width: 100%;}
+    .form__input--name {
+    margin-left: -1rem;
+    width: 100%;}
+    .form__button {
+    top: 95%;}
+    .form__male, .form__female {
+    width: 55px;
+    margin-left: -1rem;}
+    .form__male {
+    margin-right: 3rem;}
+    .form__input--day {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: 55px;
+    margin-bottom: 2rem;}
+    .form__input--month {
+    margin-right: 0.5rem;
+    width: 55px;
+    margin-bottom: 2rem;}
+    .form__input--year {
+    width: auto;
+    max-width: 80px;
+    margin-bottom: 2rem;}
+    .break-line {
+    width: 10px;
+    margin-bottom: 2rem;}
+    .form__input--tel {
+    width: 53%;
+    margin-left: 2rem;}
+    .form__select--phone {
+    width: 40%;}
+    .form__radio--squared1 {
+    left: 18%;}
+    .form__radio--squared2 {
+    left: 54.5%;}
+}
+// iPhone 4
+@media screen and (max-height: 480px) {
+    body {
+    overflow-y: auto;}
+    .container {
+    min-height: 115vh;}
+    .container__panel2 {
+    height: 90vh;}
+    .panel2__header {
+    margin-top: -3rem;}
+}
